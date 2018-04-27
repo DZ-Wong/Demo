@@ -1,6 +1,6 @@
 package com.wdz.springboot.core.response;
 
-import com.alibaba.fastjson.JSONObject;
+import com.wdz.springboot.Utils.JsonUtil;
 
 /**
  * Created by vip on 2018/4/24.
@@ -9,17 +9,27 @@ public class GenericResponse {
     private String rc;
     private String rcDetail;
     private Integer status;
+    private Double fee;
 
-    public GenericResponse(String rc, String rcDetail, Integer status) {
+    public GenericResponse(String rc, String rcDetail, Integer status, Double fee) {
         this.rc = rc;
         this.rcDetail = rcDetail;
         this.status = status;
+        this.fee = fee;
     }
 
     public GenericResponse() {
-        this.rc = "test";
+        this.rc = "00";
         this.rcDetail = "test";
-        this.status = 99;
+        this.status = 0;
+        this.fee = 5.0;
+    }
+
+    public GenericResponse(String rc, String rcDetail) {
+        this.rc = rc;
+        this.rcDetail = rcDetail;
+        this.status = 3;
+        this.fee = 0.0;
     }
 
     public String getRc() {
@@ -46,13 +56,21 @@ public class GenericResponse {
         this.status = status;
     }
 
+    public Double getFee() {
+        return fee;
+    }
+
+    public void setFee(Double fee) {
+        this.fee = fee;
+    }
+
     @Override
     public String toString() {
         return "GenericResponse{" + "rc='" + rc + '\'' + ", rcDetail='" + rcDetail + '\'' +
                ", status=" + status + '}';
     }
 
-//    public String toJSONString() {
-//        return JSONObject.toJSONString(this, FastJson);
-//    }
+    public String toJSONString() {
+        return JsonUtil.toJSONString(this, JsonUtil.getFormateConfig());
+    }
 }

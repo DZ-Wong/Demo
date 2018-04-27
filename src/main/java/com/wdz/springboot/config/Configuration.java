@@ -1,4 +1,4 @@
-package com.wdz.springboot.core.config;
+package com.wdz.springboot.config;
 
 import com.wdz.springboot.Incoming.dispatcher.IncomingDispatcher;
 import com.wdz.springboot.core.handler.AbstractHandler;

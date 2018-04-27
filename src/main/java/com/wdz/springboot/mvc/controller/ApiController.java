@@ -1,6 +1,9 @@
 package com.wdz.springboot.mvc.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.wdz.springboot.Incoming.dispatcher.IncomingDispatcher;
+import com.wdz.springboot.Utils.Json2Util;
+import com.wdz.springboot.Utils.JsonUtil;
 import com.wdz.springboot.core.request.GenericRequest;
 import com.wdz.springboot.core.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +28,23 @@ public class ApiController {
     @RequestMapping(value = "/handle", produces = {"application/json"}, method = RequestMethod.POST)
     @ResponseBody
     public String handle(@RequestBody String reqData) {
+        logger.trace("日志设置为debug， 验证是否能输出trace： 可以");
+        logger.info("日志设置为debug， 验证是否能输出info： 可以");
         logger.debug("requset: " + reqData);
+
         GenericRequest request = new GenericRequest(reqData);
         GenericResponse response = dispatcher.handle(request);
-        return "{\"handle\":\"123\"}";
+
+
+        logger.debug(response.toJSONString());
+        logger.debug("between");
+        logger.debug(JSONObject.toJSONString(response));
+        logger.debug("between");
+        logger.debug(Json2Util.toJSONString(response));
+        return response.toJSONString();
     }
 
+    /**扩展*/
     @RequestMapping("/newhandle")
     public String orghandle() {
         return "newhandle";
