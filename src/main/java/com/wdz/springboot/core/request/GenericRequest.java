@@ -23,11 +23,13 @@ public class GenericRequest {
     @NotEmpty(message = "Args should not be Empty")
     private String args;
 
+    private String orginData;
     public GenericRequest(String reqData) {
         JSONObject requestObject = JSONObject.parseObject(reqData);
         id = requestObject.getString("id");
         swtich = requestObject.getIntValue("swtich");
         args = requestObject.getString("args");
+        orginData = reqData;
     }
 
     public String getId() {
@@ -52,6 +54,10 @@ public class GenericRequest {
 
     public void setArgs(String args) {
         this.args = args;
+    }
+
+    public String getOrginData() {
+        return orginData;
     }
 
     @Override

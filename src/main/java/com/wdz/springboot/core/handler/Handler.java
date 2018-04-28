@@ -7,7 +7,7 @@ import com.wdz.springboot.core.request.GenericRequest;
  */
 public interface Handler<R, S> {
 
-    S handle(GenericRequest request);
+    S handle(R request) throws Exception;
 
     boolean isSupport(GenericRequest request);
 

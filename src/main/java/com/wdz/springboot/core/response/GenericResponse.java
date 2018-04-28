@@ -1,6 +1,6 @@
 package com.wdz.springboot.core.response;
 
-import com.wdz.springboot.Utils.JsonUtil;
+import com.wdz.springboot.utils.JsonUtil;
 
 /**
  * Created by vip on 2018/4/24.

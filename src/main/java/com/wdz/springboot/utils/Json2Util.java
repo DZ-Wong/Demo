@@ -1,4 +1,4 @@
-package com.wdz.springboot.Utils;
+package com.wdz.springboot.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.DoubleSerializer;

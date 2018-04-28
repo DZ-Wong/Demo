@@ -1,10 +1,9 @@
-package com.wdz.springboot.Utils;
+package com.wdz.springboot.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 /**
@@ -12,11 +11,16 @@ import java.util.Set;
  */
 @Component
 public class BeanValidateDemo<R> {
+    /*获取Validator对象的另一种方式是利用Spring Boot自动装载。*/
+    @Autowired
+    private Validator validator;
+
     /*程序化验证, 为了通用，引入泛型*/
     public  String  ValidateRequest(R request) {
-        /**首先要有个Validator 对象， 从工厂类里面获取*/
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+        /**首先要有个Validator 对象， 一种方式是从工厂类里面获取*/
+//        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+//        Validator validator = factory.getValidator();
+
 
         /**验证Bean. 调用validator 的validate方法，验证结果返回Set集合*/
         Set<ConstraintViolation<R>> violations  = validator.validate(request);

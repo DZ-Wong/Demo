@@ -1,6 +1,5 @@
 package com.wdz.springboot.Incoming.dispatcher;
 
-import com.wdz.springboot.Incoming.handler.TestHandler;
 import com.wdz.springboot.core.handler.AbstractHandler;
 import com.wdz.springboot.core.dispatcher.AbstractDispatcher;
 import com.wdz.springboot.core.request.GenericRequest;
@@ -13,7 +12,7 @@ public class IncomingDispatcher extends AbstractDispatcher<AbstractHandler> {
 
 
     @Override
-    public GenericResponse handle(GenericRequest request) {
+    public GenericResponse handle(GenericRequest request) throws Exception {
         for (AbstractHandler<GenericRequest, GenericResponse> handler : handlers) {
             if (handler.isSupport(request)) {
                 return handler.handle(request);

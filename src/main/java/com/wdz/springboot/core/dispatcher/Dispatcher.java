@@ -12,7 +12,7 @@ public interface Dispatcher<T> {
 
     void init();
 
-    GenericResponse handle(GenericRequest request);
+    GenericResponse handle(GenericRequest request) throws Exception;
 
     void setHandler(List<T> handlers);
 }

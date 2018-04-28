@@ -19,7 +19,7 @@ public abstract class AbstractDispatcher<T> implements Dispatcher<T> {
 
     @Override
     public abstract GenericResponse handle(
-        GenericRequest request);
+        GenericRequest request) throws Exception;
 
     @Override
     public void setHandler(List<T> handlers) {

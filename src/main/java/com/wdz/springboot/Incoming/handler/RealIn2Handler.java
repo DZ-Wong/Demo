@@ -6,11 +6,7 @@ import com.wdz.springboot.core.response.GenericResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Test2Handler<R, S>  extends AbstractHandler<GenericRequest, GenericResponse>{
-    @Override
-    public GenericResponse handle(GenericRequest request) {
-        return null;
-    }
+public class RealIn2Handler<R, S>  extends AbstractHandler<GenericRequest, GenericResponse>{
 
     @Override
     public boolean isSupport(GenericRequest request) {
