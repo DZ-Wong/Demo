@@ -40,6 +40,7 @@ public class ApiController {
         logger.debug(JSONObject.toJSONString(response));
         logger.debug("between");
         logger.debug(Json2Util.toJSONString(response));
+        System.out.println();
         return response.toJSONString();
     }
 

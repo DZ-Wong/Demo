@@ -13,6 +13,7 @@ public class IncomingDispatcher extends AbstractDispatcher<AbstractHandler> {
 
     @Override
     public GenericResponse handle(GenericRequest request) throws Exception {
+
         for (AbstractHandler<GenericRequest, GenericResponse> handler : handlers) {
             if (handler.isSupport(request)) {
                 return handler.handle(request);
